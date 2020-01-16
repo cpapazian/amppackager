@@ -120,12 +120,12 @@ func main() {
 	defer rtvCache.StopCron()
 
 	var overrideBaseURL *url.URL
-	if *flagDevelopment {
-		overrideBaseURL, err = url.Parse(fmt.Sprintf("https://localhost:%d/", config.Port))
-		if err != nil {
-			die(errors.Wrap(err, "parsing development base URL"))
-		}
-	}
+	//if *flagDevelopment {
+	//	overrideBaseURL, err = url.Parse(fmt.Sprintf("https://localhost:%d/", config.Port))
+	//	if err != nil {
+	//		die(errors.Wrap(err, "parsing development base URL"))
+	//	}
+	//}
 
 	signerRequireHeaders := !*flagDevelopment
 	signer, err := signer.New(certCache, key, config.URLSet, rtvCache, certCache.IsHealthy,
