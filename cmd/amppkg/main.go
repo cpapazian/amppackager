@@ -166,7 +166,8 @@ func main() {
 
 	if *flagDevelopment {
 		log.Println("WARNING: Running in development, using SXG key for TLS. This won't work in production.")
-		log.Fatal(server.ListenAndServeTLS(config.CertFile, config.KeyFile))
+		//log.Fatal(server.ListenAndServeTLS(config.CertFile, config.KeyFile))
+		log.Fatal(server.ListenAndServe())
 	} else if *flagInvalidCert {
 		log.Println("WARNING: Running in production without valid signing certificate. Signed exchanges will not be valid.")
 		log.Fatal(server.ListenAndServe())
